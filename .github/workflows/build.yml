@@ -20,8 +20,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '8'
-          distribution: 'oracle'
+          java-version: '11'
+          distribution: 'termurin'
           architecture: x64
 
       - name: Build jar
