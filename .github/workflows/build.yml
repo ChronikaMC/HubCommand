@@ -1,10 +1,6 @@
 name: Build Plugin JAR
 
-on:
-  push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
+on: push
 
 permissions:
   contents: read
