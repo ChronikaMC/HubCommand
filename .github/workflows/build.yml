@@ -1,0 +1,31 @@
+name: Build Plugin JAR
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          architecture: x64
+
+      - name: Build jar
+        run: mvn --batch-mode --update-snapshots verify
+
+      - name: Archive build target
+        uses: actions/upload-artifact@v3
+        with:
+          name: target
+          path: |
+            target/*
