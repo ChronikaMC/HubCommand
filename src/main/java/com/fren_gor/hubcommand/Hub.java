@@ -19,13 +19,13 @@ import net.md_5.bungee.config.YamlConfiguration;
 public class Hub extends Command {
 
     public Hub(boolean needsPermission) {
-        super("hub", needsPermission ? "hubcommand.command" : null);
+        super("hub", needsPermission ? "hubcommand.command" : null, "lobby");
     }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (!(sender instanceof ProxiedPlayer)) {
-            sender.sendMessage(new TextComponent("You must be a player to do /hub"));
+            sender.sendMessage(new TextComponent("You must be a player to use this command."));
             return;
         }
 
